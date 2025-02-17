@@ -80,8 +80,6 @@ export default function FormularInscriere() {
         },
         body: JSON.stringify(formData),
       });
-
-      const result = await response.json();
   
       if (!response.ok) throw new Error('Failed to submit');
   
