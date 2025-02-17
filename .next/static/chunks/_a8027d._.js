@@ -88,6 +88,7 @@ function FormularInscriere() {
                 },
                 body: JSON.stringify(formData)
             });
+            const result = await response.json();
             if (!response.ok) throw new Error('Failed to submit');
             setIsSubmitted(true);
             setFormData({
@@ -132,7 +133,7 @@ function FormularInscriere() {
                         children: "🎉"
                     }, void 0, false, {
                         fileName: "[project]/components/FormularInscriere.tsx",
-                        lineNumber: 123,
+                        lineNumber: 126,
                         columnNumber: 11
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h1", {
@@ -140,7 +141,7 @@ function FormularInscriere() {
                         children: "Înregistrare finalizată cu succes!"
                     }, void 0, false, {
                         fileName: "[project]/components/FormularInscriere.tsx",
-                        lineNumber: 124,
+                        lineNumber: 127,
                         columnNumber: 11
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -148,7 +149,7 @@ function FormularInscriere() {
                         children: "Vă mulțumim pentru înscriere la cursurile TechMinds Academy!"
                     }, void 0, false, {
                         fileName: "[project]/components/FormularInscriere.tsx",
-                        lineNumber: 127,
+                        lineNumber: 130,
                         columnNumber: 11
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -159,7 +160,7 @@ function FormularInscriere() {
                                 children: "Următorii pași:"
                             }, void 0, false, {
                                 fileName: "[project]/components/FormularInscriere.tsx",
-                                lineNumber: 131,
+                                lineNumber: 134,
                                 columnNumber: 13
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("ul", {
@@ -173,14 +174,14 @@ function FormularInscriere() {
                                                 children: "📧"
                                             }, void 0, false, {
                                                 fileName: "[project]/components/FormularInscriere.tsx",
-                                                lineNumber: 134,
+                                                lineNumber: 137,
                                                 columnNumber: 17
                                             }, this),
                                             "Veți primi un email de confirmare în câteva minute"
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/components/FormularInscriere.tsx",
-                                        lineNumber: 133,
+                                        lineNumber: 136,
                                         columnNumber: 15
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("li", {
@@ -191,14 +192,14 @@ function FormularInscriere() {
                                                 children: "📄"
                                             }, void 0, false, {
                                                 fileName: "[project]/components/FormularInscriere.tsx",
-                                                lineNumber: 138,
+                                                lineNumber: 141,
                                                 columnNumber: 17
                                             }, this),
                                             "Contractul va fi generat și trimis pe email în maxim 24 de ore"
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/components/FormularInscriere.tsx",
-                                        lineNumber: 137,
+                                        lineNumber: 140,
                                         columnNumber: 15
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("li", {
@@ -209,26 +210,26 @@ function FormularInscriere() {
                                                 children: "📞"
                                             }, void 0, false, {
                                                 fileName: "[project]/components/FormularInscriere.tsx",
-                                                lineNumber: 142,
+                                                lineNumber: 145,
                                                 columnNumber: 17
                                             }, this),
                                             "Un reprezentant TechMinds vă va contacta în curând pentru detalii"
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/components/FormularInscriere.tsx",
-                                        lineNumber: 141,
+                                        lineNumber: 144,
                                         columnNumber: 15
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/components/FormularInscriere.tsx",
-                                lineNumber: 132,
+                                lineNumber: 135,
                                 columnNumber: 13
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/components/FormularInscriere.tsx",
-                        lineNumber: 130,
+                        lineNumber: 133,
                         columnNumber: 11
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -237,18 +238,18 @@ function FormularInscriere() {
                         children: "Înapoi la formular"
                     }, void 0, false, {
                         fileName: "[project]/components/FormularInscriere.tsx",
-                        lineNumber: 147,
+                        lineNumber: 150,
                         columnNumber: 11
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/components/FormularInscriere.tsx",
-                lineNumber: 122,
+                lineNumber: 125,
                 columnNumber: 9
             }, this)
         }, void 0, false, {
             fileName: "[project]/components/FormularInscriere.tsx",
-            lineNumber: 121,
+            lineNumber: 124,
             columnNumber: 7
         }, this);
     }
@@ -270,12 +271,12 @@ function FormularInscriere() {
                                 className: "object-contain"
                             }, void 0, false, {
                                 fileName: "[project]/components/FormularInscriere.tsx",
-                                lineNumber: 167,
+                                lineNumber: 170,
                                 columnNumber: 13
                             }, this)
                         }, void 0, false, {
                             fileName: "[project]/components/FormularInscriere.tsx",
-                            lineNumber: 166,
+                            lineNumber: 169,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -286,7 +287,7 @@ function FormularInscriere() {
                                     children: "Formular înscriere TechMinds Academy"
                                 }, void 0, false, {
                                     fileName: "[project]/components/FormularInscriere.tsx",
-                                    lineNumber: 179,
+                                    lineNumber: 182,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h2", {
@@ -294,7 +295,7 @@ function FormularInscriere() {
                                     children: "Vino în lumea STEM! 🚀"
                                 }, void 0, false, {
                                     fileName: "[project]/components/FormularInscriere.tsx",
-                                    lineNumber: 184,
+                                    lineNumber: 187,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -302,24 +303,24 @@ function FormularInscriere() {
                                     children: "Descoperă universul fascinant al roboticii și programării"
                                 }, void 0, false, {
                                     fileName: "[project]/components/FormularInscriere.tsx",
-                                    lineNumber: 189,
+                                    lineNumber: 192,
                                     columnNumber: 13
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/components/FormularInscriere.tsx",
-                            lineNumber: 177,
+                            lineNumber: 180,
                             columnNumber: 11
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/components/FormularInscriere.tsx",
-                    lineNumber: 164,
+                    lineNumber: 167,
                     columnNumber: 9
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/components/FormularInscriere.tsx",
-                lineNumber: 161,
+                lineNumber: 164,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("form", {
@@ -335,12 +336,12 @@ function FormularInscriere() {
                                     children: "👶 Date Copil"
                                 }, void 0, false, {
                                     fileName: "[project]/components/FormularInscriere.tsx",
-                                    lineNumber: 202,
+                                    lineNumber: 205,
                                     columnNumber: 13
                                 }, this)
                             }, void 0, false, {
                                 fileName: "[project]/components/FormularInscriere.tsx",
-                                lineNumber: 201,
+                                lineNumber: 204,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -353,7 +354,7 @@ function FormularInscriere() {
                                                 children: "Nume Copil"
                                             }, void 0, false, {
                                                 fileName: "[project]/components/FormularInscriere.tsx",
-                                                lineNumber: 206,
+                                                lineNumber: 209,
                                                 columnNumber: 15
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
@@ -367,13 +368,13 @@ function FormularInscriere() {
                                                 placeholder: "Numele copilului"
                                             }, void 0, false, {
                                                 fileName: "[project]/components/FormularInscriere.tsx",
-                                                lineNumber: 207,
+                                                lineNumber: 210,
                                                 columnNumber: 15
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/components/FormularInscriere.tsx",
-                                        lineNumber: 205,
+                                        lineNumber: 208,
                                         columnNumber: 13
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -383,7 +384,7 @@ function FormularInscriere() {
                                                 children: "Prenume Copil"
                                             }, void 0, false, {
                                                 fileName: "[project]/components/FormularInscriere.tsx",
-                                                lineNumber: 217,
+                                                lineNumber: 220,
                                                 columnNumber: 15
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
@@ -397,13 +398,13 @@ function FormularInscriere() {
                                                 placeholder: "Prenumele copilului"
                                             }, void 0, false, {
                                                 fileName: "[project]/components/FormularInscriere.tsx",
-                                                lineNumber: 218,
+                                                lineNumber: 221,
                                                 columnNumber: 15
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/components/FormularInscriere.tsx",
-                                        lineNumber: 216,
+                                        lineNumber: 219,
                                         columnNumber: 13
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -413,7 +414,7 @@ function FormularInscriere() {
                                                 children: "Data Nașterii"
                                             }, void 0, false, {
                                                 fileName: "[project]/components/FormularInscriere.tsx",
-                                                lineNumber: 228,
+                                                lineNumber: 231,
                                                 columnNumber: 15
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
@@ -426,13 +427,13 @@ function FormularInscriere() {
                                                 className: "w-full p-3 border border-blue-200 rounded-lg focus:ring-2 focus:ring-blue-500    focus:border-blue-500 transition-all"
                                             }, void 0, false, {
                                                 fileName: "[project]/components/FormularInscriere.tsx",
-                                                lineNumber: 229,
+                                                lineNumber: 232,
                                                 columnNumber: 15
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/components/FormularInscriere.tsx",
-                                        lineNumber: 227,
+                                        lineNumber: 230,
                                         columnNumber: 13
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -442,7 +443,7 @@ function FormularInscriere() {
                                                 children: "Vârsta"
                                             }, void 0, false, {
                                                 fileName: "[project]/components/FormularInscriere.tsx",
-                                                lineNumber: 238,
+                                                lineNumber: 241,
                                                 columnNumber: 15
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("select", {
@@ -458,7 +459,7 @@ function FormularInscriere() {
                                                         children: "Selectează vârsta"
                                                     }, void 0, false, {
                                                         fileName: "[project]/components/FormularInscriere.tsx",
-                                                        lineNumber: 245,
+                                                        lineNumber: 248,
                                                         columnNumber: 17
                                                     }, this),
                                                     [
@@ -471,31 +472,31 @@ function FormularInscriere() {
                                                             ]
                                                         }, i + 8, true, {
                                                             fileName: "[project]/components/FormularInscriere.tsx",
-                                                            lineNumber: 247,
+                                                            lineNumber: 250,
                                                             columnNumber: 19
                                                         }, this))
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/components/FormularInscriere.tsx",
-                                                lineNumber: 239,
+                                                lineNumber: 242,
                                                 columnNumber: 15
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/components/FormularInscriere.tsx",
-                                        lineNumber: 237,
+                                        lineNumber: 240,
                                         columnNumber: 13
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/components/FormularInscriere.tsx",
-                                lineNumber: 204,
+                                lineNumber: 207,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/components/FormularInscriere.tsx",
-                        lineNumber: 199,
+                        lineNumber: 202,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -507,12 +508,12 @@ function FormularInscriere() {
                                     children: "👨‍👩‍👧‍👦 Date Părinte/Tutore Legal"
                                 }, void 0, false, {
                                     fileName: "[project]/components/FormularInscriere.tsx",
-                                    lineNumber: 258,
+                                    lineNumber: 261,
                                     columnNumber: 13
                                 }, this)
                             }, void 0, false, {
                                 fileName: "[project]/components/FormularInscriere.tsx",
-                                lineNumber: 257,
+                                lineNumber: 260,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -525,7 +526,7 @@ function FormularInscriere() {
                                                 children: "Nume"
                                             }, void 0, false, {
                                                 fileName: "[project]/components/FormularInscriere.tsx",
-                                                lineNumber: 262,
+                                                lineNumber: 265,
                                                 columnNumber: 15
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
@@ -539,13 +540,13 @@ function FormularInscriere() {
                                                 placeholder: "Numele părintelui"
                                             }, void 0, false, {
                                                 fileName: "[project]/components/FormularInscriere.tsx",
-                                                lineNumber: 263,
+                                                lineNumber: 266,
                                                 columnNumber: 15
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/components/FormularInscriere.tsx",
-                                        lineNumber: 261,
+                                        lineNumber: 264,
                                         columnNumber: 13
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -555,7 +556,7 @@ function FormularInscriere() {
                                                 children: "Prenume"
                                             }, void 0, false, {
                                                 fileName: "[project]/components/FormularInscriere.tsx",
-                                                lineNumber: 273,
+                                                lineNumber: 276,
                                                 columnNumber: 15
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
@@ -569,13 +570,13 @@ function FormularInscriere() {
                                                 placeholder: "Prenumele părintelui"
                                             }, void 0, false, {
                                                 fileName: "[project]/components/FormularInscriere.tsx",
-                                                lineNumber: 274,
+                                                lineNumber: 277,
                                                 columnNumber: 15
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/components/FormularInscriere.tsx",
-                                        lineNumber: 272,
+                                        lineNumber: 275,
                                         columnNumber: 13
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -585,7 +586,7 @@ function FormularInscriere() {
                                                 children: "CNP"
                                             }, void 0, false, {
                                                 fileName: "[project]/components/FormularInscriere.tsx",
-                                                lineNumber: 284,
+                                                lineNumber: 287,
                                                 columnNumber: 15
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
@@ -599,13 +600,13 @@ function FormularInscriere() {
                                                 placeholder: "CNP părinte"
                                             }, void 0, false, {
                                                 fileName: "[project]/components/FormularInscriere.tsx",
-                                                lineNumber: 285,
+                                                lineNumber: 288,
                                                 columnNumber: 15
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/components/FormularInscriere.tsx",
-                                        lineNumber: 283,
+                                        lineNumber: 286,
                                         columnNumber: 13
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -615,7 +616,7 @@ function FormularInscriere() {
                                                 children: "Adresa"
                                             }, void 0, false, {
                                                 fileName: "[project]/components/FormularInscriere.tsx",
-                                                lineNumber: 296,
+                                                lineNumber: 299,
                                                 columnNumber: 15
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
@@ -629,13 +630,13 @@ function FormularInscriere() {
                                                 placeholder: "Strada, număr, bloc, scara, apartament"
                                             }, void 0, false, {
                                                 fileName: "[project]/components/FormularInscriere.tsx",
-                                                lineNumber: 297,
+                                                lineNumber: 300,
                                                 columnNumber: 15
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/components/FormularInscriere.tsx",
-                                        lineNumber: 295,
+                                        lineNumber: 298,
                                         columnNumber: 13
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -645,7 +646,7 @@ function FormularInscriere() {
                                                 children: "Localitate"
                                             }, void 0, false, {
                                                 fileName: "[project]/components/FormularInscriere.tsx",
-                                                lineNumber: 307,
+                                                lineNumber: 310,
                                                 columnNumber: 15
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
@@ -659,13 +660,13 @@ function FormularInscriere() {
                                                 placeholder: "Localitatea"
                                             }, void 0, false, {
                                                 fileName: "[project]/components/FormularInscriere.tsx",
-                                                lineNumber: 308,
+                                                lineNumber: 311,
                                                 columnNumber: 15
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/components/FormularInscriere.tsx",
-                                        lineNumber: 306,
+                                        lineNumber: 309,
                                         columnNumber: 13
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -675,7 +676,7 @@ function FormularInscriere() {
                                                 children: "Sector sau Județ"
                                             }, void 0, false, {
                                                 fileName: "[project]/components/FormularInscriere.tsx",
-                                                lineNumber: 318,
+                                                lineNumber: 321,
                                                 columnNumber: 15
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
@@ -689,13 +690,13 @@ function FormularInscriere() {
                                                 placeholder: "Sectorul sau Județul"
                                             }, void 0, false, {
                                                 fileName: "[project]/components/FormularInscriere.tsx",
-                                                lineNumber: 319,
+                                                lineNumber: 322,
                                                 columnNumber: 15
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/components/FormularInscriere.tsx",
-                                        lineNumber: 317,
+                                        lineNumber: 320,
                                         columnNumber: 13
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -705,7 +706,7 @@ function FormularInscriere() {
                                                 children: "Telefon"
                                             }, void 0, false, {
                                                 fileName: "[project]/components/FormularInscriere.tsx",
-                                                lineNumber: 329,
+                                                lineNumber: 332,
                                                 columnNumber: 15
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
@@ -719,13 +720,13 @@ function FormularInscriere() {
                                                 placeholder: "07xx xxx xxx"
                                             }, void 0, false, {
                                                 fileName: "[project]/components/FormularInscriere.tsx",
-                                                lineNumber: 330,
+                                                lineNumber: 333,
                                                 columnNumber: 15
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/components/FormularInscriere.tsx",
-                                        lineNumber: 328,
+                                        lineNumber: 331,
                                         columnNumber: 13
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -735,7 +736,7 @@ function FormularInscriere() {
                                                 children: "Email"
                                             }, void 0, false, {
                                                 fileName: "[project]/components/FormularInscriere.tsx",
-                                                lineNumber: 340,
+                                                lineNumber: 343,
                                                 columnNumber: 15
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
@@ -749,25 +750,25 @@ function FormularInscriere() {
                                                 placeholder: "email@exemplu.com"
                                             }, void 0, false, {
                                                 fileName: "[project]/components/FormularInscriere.tsx",
-                                                lineNumber: 341,
+                                                lineNumber: 344,
                                                 columnNumber: 15
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/components/FormularInscriere.tsx",
-                                        lineNumber: 339,
+                                        lineNumber: 342,
                                         columnNumber: 13
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/components/FormularInscriere.tsx",
-                                lineNumber: 260,
+                                lineNumber: 263,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/components/FormularInscriere.tsx",
-                        lineNumber: 255,
+                        lineNumber: 258,
                         columnNumber: 8
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -779,12 +780,12 @@ function FormularInscriere() {
                                     children: "📚 Cursuri Disponibile"
                                 }, void 0, false, {
                                     fileName: "[project]/components/FormularInscriere.tsx",
-                                    lineNumber: 357,
+                                    lineNumber: 360,
                                     columnNumber: 13
                                 }, this)
                             }, void 0, false, {
                                 fileName: "[project]/components/FormularInscriere.tsx",
-                                lineNumber: 356,
+                                lineNumber: 359,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -801,7 +802,7 @@ function FormularInscriere() {
                                                 children: curs.emoji
                                             }, void 0, false, {
                                                 fileName: "[project]/components/FormularInscriere.tsx",
-                                                lineNumber: 371,
+                                                lineNumber: 374,
                                                 columnNumber: 5
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -809,7 +810,7 @@ function FormularInscriere() {
                                                 children: curs.nume
                                             }, void 0, false, {
                                                 fileName: "[project]/components/FormularInscriere.tsx",
-                                                lineNumber: 372,
+                                                lineNumber: 375,
                                                 columnNumber: 5
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -817,7 +818,7 @@ function FormularInscriere() {
                                                 children: curs.subtitlu
                                             }, void 0, false, {
                                                 fileName: "[project]/components/FormularInscriere.tsx",
-                                                lineNumber: 373,
+                                                lineNumber: 376,
                                                 columnNumber: 5
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -825,24 +826,24 @@ function FormularInscriere() {
                                                 children: curs.tehnologii
                                             }, void 0, false, {
                                                 fileName: "[project]/components/FormularInscriere.tsx",
-                                                lineNumber: 374,
+                                                lineNumber: 377,
                                                 columnNumber: 5
                                             }, this)
                                         ]
                                     }, curs.id, true, {
                                         fileName: "[project]/components/FormularInscriere.tsx",
-                                        lineNumber: 361,
+                                        lineNumber: 364,
                                         columnNumber: 3
                                     }, this))
                             }, void 0, false, {
                                 fileName: "[project]/components/FormularInscriere.tsx",
-                                lineNumber: 359,
+                                lineNumber: 362,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/components/FormularInscriere.tsx",
-                        lineNumber: 354,
+                        lineNumber: 357,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -854,12 +855,12 @@ function FormularInscriere() {
                                     children: "🎯 Nivel Experiență"
                                 }, void 0, false, {
                                     fileName: "[project]/components/FormularInscriere.tsx",
-                                    lineNumber: 384,
+                                    lineNumber: 387,
                                     columnNumber: 13
                                 }, this)
                             }, void 0, false, {
                                 fileName: "[project]/components/FormularInscriere.tsx",
-                                lineNumber: 383,
+                                lineNumber: 386,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -880,18 +881,18 @@ function FormularInscriere() {
                                         children: nivel
                                     }, nivel, false, {
                                         fileName: "[project]/components/FormularInscriere.tsx",
-                                        lineNumber: 388,
+                                        lineNumber: 391,
                                         columnNumber: 15
                                     }, this))
                             }, void 0, false, {
                                 fileName: "[project]/components/FormularInscriere.tsx",
-                                lineNumber: 386,
+                                lineNumber: 389,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/components/FormularInscriere.tsx",
-                        lineNumber: 381,
+                        lineNumber: 384,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -900,7 +901,7 @@ function FormularInscriere() {
                         children: "Înscrie-te Acum! 🚀"
                     }, void 0, false, {
                         fileName: "[project]/components/FormularInscriere.tsx",
-                        lineNumber: 405,
+                        lineNumber: 408,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -913,7 +914,7 @@ function FormularInscriere() {
                                 children: "Cum vor fi folosite datele mele?"
                             }, void 0, false, {
                                 fileName: "[project]/components/FormularInscriere.tsx",
-                                lineNumber: 417,
+                                lineNumber: 420,
                                 columnNumber: 3
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -931,42 +932,42 @@ function FormularInscriere() {
                                                 children: "office@techminds-academy.ro"
                                             }, void 0, false, {
                                                 fileName: "[project]/components/FormularInscriere.tsx",
-                                                lineNumber: 436,
+                                                lineNumber: 439,
                                                 columnNumber: 9
                                             }, this),
                                             "."
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/components/FormularInscriere.tsx",
-                                        lineNumber: 432,
+                                        lineNumber: 435,
                                         columnNumber: 7
                                     }, this)
                                 }, void 0, false, {
                                     fileName: "[project]/components/FormularInscriere.tsx",
-                                    lineNumber: 431,
+                                    lineNumber: 434,
                                     columnNumber: 5
                                 }, this)
                             }, void 0, false, {
                                 fileName: "[project]/components/FormularInscriere.tsx",
-                                lineNumber: 425,
+                                lineNumber: 428,
                                 columnNumber: 3
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/components/FormularInscriere.tsx",
-                        lineNumber: 416,
+                        lineNumber: 419,
                         columnNumber: 1
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/components/FormularInscriere.tsx",
-                lineNumber: 196,
+                lineNumber: 199,
                 columnNumber: 7
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/components/FormularInscriere.tsx",
-        lineNumber: 159,
+        lineNumber: 162,
         columnNumber: 5
     }, this);
 }

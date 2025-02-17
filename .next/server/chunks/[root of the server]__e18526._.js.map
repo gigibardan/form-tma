@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": [],
+  "sections": [
+    {"offset": {"line": 55, "column": 0}, "map": {"version":3,"sources":["file://D%3A/proiect-form/form-tma/app/api/submit/route.ts"],"sourcesContent":["import { NextResponse } from 'next/server';\r\n\r\nexport async function POST(req: Request) {\r\n  try {\r\n    const data = await req.json(); // Parsează JSON-ul din request\r\n    console.log('Received data:', data);\r\n\r\n    return NextResponse.json({ message: 'Success' }, { status: 200 });\r\n  } catch (error) {\r\n    console.error('API Error:', error);\r\n    return NextResponse.json({ error: 'Internal Server Error' }, { status: 500 });\r\n  }\r\n}\r\n"],"names":[],"mappings":";;;AAAA;;AAEO,eAAe,KAAK,GAAY;IACrC,IAAI;QACF,MAAM,OAAO,MAAM,IAAI,IAAI,IAAI,+BAA+B;QAC9D,QAAQ,GAAG,CAAC,kBAAkB;QAE9B,OAAO,gIAAA,CAAA,eAAY,CAAC,IAAI,CAAC;YAAE,SAAS;QAAU,GAAG;YAAE,QAAQ;QAAI;IACjE,EAAE,OAAO,OAAO;QACd,QAAQ,KAAK,CAAC,cAAc;QAC5B,OAAO,gIAAA,CAAA,eAAY,CAAC,IAAI,CAAC;YAAE,OAAO;QAAwB,GAAG;YAAE,QAAQ;QAAI;IAC7E;AACF"}},
+    {"offset": {"line": 78, "column": 0}, "map": {"version":3,"sources":[],"names":[],"mappings":"A"}}]
+}
