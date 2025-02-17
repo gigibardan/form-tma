@@ -21,11 +21,11 @@ export async function POST(req: Request) {
       '',                             // Zip Code
       'Romania',                      // Country
       'Active',                       // Parent Status
-      '',                             // Notes
-      'Yes',                          // Event Reminders
+      `CNP: ${data.cnpParinte}`,     // Notes - Salvăm CNP-ul aici
+      data.notificariEvenimente ? 'Yes' : 'No', // Event Reminders
       '',                             // Event Notes
-      'Yes',                          // Emails
-      'Yes',                          // SMS Reminders
+      data.notificariEmail ? 'Yes' : 'No',      // Emails
+      data.notificariSMS ? 'Yes' : 'No',        // SMS Reminders
       data.numeCopil,                 // Student First Name
       data.prenumeCopil,              // Student Last Name
       '',                             // Student Email
@@ -33,23 +33,22 @@ export async function POST(req: Request) {
       '',                             // Student Home Phone
       data.dataNasterii,             // Birth Date
       new Date().toISOString(),       // Start Date
-      '',                             // School
+      data.scoala,                    // School
       '',                             // Grade
       data.cursuri.join(', '),       // Subjects
-      '',                             // Student Notes
+      data.observatiiCopil,          // Student Notes
       'Active',                       // Student Status
       'Standard',                     // Billing Method
       '',                             // Student Hourly Cost
       '',                             // Cost Premium Name
       '',                             // Discount Rate
-      'Yes',                          // Student Event Reminders
+      data.notificariEvenimente ? 'Yes' : 'No', // Student Event Reminders
       '',                             // Student Event Notes
-      'Yes',                          // Student Emails
-      'Yes',                          // Student SMS Reminders
+      data.notificariEmail ? 'Yes' : 'No',      // Student Emails
+      data.notificariSMS ? 'Yes' : 'No',        // Student SMS Reminders
     ]];
-
+    
     await appendToSheet(values);
-
     return NextResponse.json({ success: true });
   } catch (error) {
     console.error('Error in submit route:', error);

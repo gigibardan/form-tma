@@ -7,8 +7,8 @@ import { useRef } from "react";
 export default function FormularInscriere() {
 
   const [showGDPR, setShowGDPR] = useState(false);
-  const [isSubmitted, setIsSubmitted] = useState(false);
   const gdprRef = useRef<HTMLDivElement | null>(null);
+ 
 
   //toggle buton gdpr
   const toggleGDPR = () => {
@@ -20,12 +20,44 @@ export default function FormularInscriere() {
     }
   };
 
-  const [formData, setFormData] = useState({
+  interface FormData {
+    // Date copil
+    numeCopil: string;
+    prenumeCopil: string;
+    dataNasterii: string;
+    varstaCopil: string;
+    scoala: string;
+    observatiiCopil: string;
+    
+    // Date părinte
+    numeParinte: string;
+    prenumeParinte: string;
+    telefon: string;
+    email: string;
+    adresa: string;
+    localitate: string;
+    judet: string;
+    cnpParinte: string;
+    
+    // Cursuri și experiență
+    cursuri: string[];
+    experienta: string;
+    
+    // Notificări
+    notificariEvenimente: boolean;
+    notificariEmail: boolean;
+    notificariSMS: boolean;
+  }
+  
+  const [isSubmitted, setIsSubmitted] = useState(false);
+  const [formData, setFormData] = useState<FormData>({
     // Date copil
     numeCopil: '',
     prenumeCopil: '',
     dataNasterii: '',
     varstaCopil: '',
+    scoala: '',
+    observatiiCopil: '',
     
     // Date părinte
     numeParinte: '',
@@ -36,11 +68,16 @@ export default function FormularInscriere() {
     localitate: '',
     judet: '',
     cnpParinte: '',
-   
     
-    cursuri: [] as string[],
-    experienta: ''
-  })
+    // Cursuri și experiență
+    cursuri: [],
+    experienta: '',
+    
+    // Notificări
+    notificariEvenimente: true,
+    notificariEmail: true,
+    notificariSMS: true
+  });
 
   const cursuri = [
     { 
@@ -71,7 +108,6 @@ export default function FormularInscriere() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-
     try {
       const response = await fetch('/api/submit', {
         method: 'POST',
@@ -89,6 +125,9 @@ export default function FormularInscriere() {
         prenumeCopil: '',
         dataNasterii: '',
         varstaCopil: '',
+        scoala: '',
+        observatiiCopil: '',
+        
         numeParinte: '',
         prenumeParinte: '',
         telefon: '',
@@ -97,13 +136,18 @@ export default function FormularInscriere() {
         localitate: '',
         judet: '',
         cnpParinte: '',
+     
         
         cursuri: [],
-        experienta: ''
+        experienta: '',
+        
+        notificariEvenimente: true,
+        notificariEmail: true,
+        notificariSMS: true
       });
     } catch (error) {
       console.error('Error submitting form:', error);
-      alert('A apărut o eroare. Vă rugăm încercați din nou..');
+      alert('A apărut o eroare. Vă rugăm încercați din nou.');
     }
   };
 
@@ -250,6 +294,30 @@ export default function FormularInscriere() {
               </select>
             </div>
           </div>
+
+          <div>
+  <label className="block text-sm font-medium text-gray-700 mb-1">Școala</label>
+  <input
+    type="text"
+    value={formData.scoala}
+    onChange={(e) => setFormData({...formData, scoala: e.target.value})}
+    className="w-full p-3 border border-blue-200 rounded-lg focus:ring-2 focus:ring-blue-500 
+              focus:border-blue-500 transition-all"
+    placeholder="Numele școlii"
+  />
+</div>
+
+<div className="col-span-2">
+  <label className="block text-sm font-medium text-gray-700 mb-1">Observații</label>
+  <textarea
+    value={formData.observatiiCopil}
+    onChange={(e) => setFormData({...formData, observatiiCopil: e.target.value})}
+    className="w-full p-3 border border-blue-200 rounded-lg focus:ring-2 focus:ring-blue-500 
+              focus:border-blue-500 transition-all"
+    placeholder="Observații despre copil (opțional)"
+    rows={3}
+  />
+</div>
         </div>
 
        {/* Secțiunea Date Părinte */}
@@ -408,6 +476,47 @@ export default function FormularInscriere() {
     ))}
   </div>
 </div>
+
+
+{/* Secțiunea Notificări */}
+<div className="bg-gradient-to-r from-yellow-50 to-yellow-100 p-6 rounded-xl shadow-lg
+                transform hover:shadow-xl transition-all mb-6">
+  <h2 className="text-2xl font-bold mb-4 text-yellow-800 flex items-center gap-2">
+    <span>🔔 Notificări și Acorduri</span>
+  </h2>
+  <div className="space-y-4">
+    <label className="flex items-center space-x-3 hover:bg-yellow-100 p-2 rounded-lg transition-all">
+      <input
+        type="checkbox"
+        checked={formData.notificariEvenimente}
+        onChange={(e) => setFormData({...formData, notificariEvenimente: e.target.checked})}
+        className="form-checkbox h-5 w-5 text-yellow-600 rounded border-yellow-300 focus:ring-yellow-500"
+      />
+      <span className="text-gray-700">Doresc să primesc notificări despre începerea cursurilor și orar</span>
+    </label>
+    
+    <label className="flex items-center space-x-3 hover:bg-yellow-100 p-2 rounded-lg transition-all">
+      <input
+        type="checkbox"
+        checked={formData.notificariEmail}
+        onChange={(e) => setFormData({...formData, notificariEmail: e.target.checked})}
+        className="form-checkbox h-5 w-5 text-yellow-600 rounded border-yellow-300 focus:ring-yellow-500"
+      />
+      <span className="text-gray-700">Doresc să primesc pe email feedback si rapoartele de progres ale copilului</span>
+    </label>
+    
+    <label className="flex items-center space-x-3 hover:bg-yellow-100 p-2 rounded-lg transition-all">
+      <input
+        type="checkbox"
+        checked={formData.notificariSMS}
+        onChange={(e) => setFormData({...formData, notificariSMS: e.target.checked})}
+        className="form-checkbox h-5 w-5 text-yellow-600 rounded border-yellow-300 focus:ring-yellow-500"
+      />
+      <span className="text-gray-700">Doresc să primesc notificări SMS pentru informații importante și urgente</span>
+    </label>
+  </div>
+</div>
+
         
         {/* Buton Submit */}
         <button
