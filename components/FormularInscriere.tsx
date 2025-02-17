@@ -377,29 +377,36 @@ export default function FormularInscriere() {
           </div>
         </div>
 
-        {/* Secțiunea Experiență */}
-        <div className="bg-gradient-to-r from-green-50 to-green-100 p-6 rounded-xl shadow-lg
-                        transform hover:shadow-xl transition-all">
-          <h2 className="text-2xl font-bold mb-4 text-green-800 flex items-center gap-2">
-            <span>🎯 Nivel Experiență</span>
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-            {['Începător', 'Intermediar', 'Avansat'].map((nivel) => (
-              <button
-                key={nivel}
-                type="button"
-                onClick={() => setFormData({...formData, experienta: nivel})}
-                className={`p-4 rounded-xl shadow-md text-center font-semibold text-lg
-                           transform transition-all hover:-translate-y-1 hover:shadow-lg
-                           ${formData.experienta === nivel
-                             ? 'bg-gradient-to-r from-green-500 to-green-600 text-white'
-                             : 'bg-white hover:bg-gray-50'}`}
-              >
-                {nivel}
-              </button>
-            ))}
-          </div>
+      {/* Secțiunea Experiență */}
+<div className="bg-gradient-to-r from-green-50 to-green-100 p-6 rounded-xl shadow-lg
+                transform hover:shadow-xl transition-all">
+  <h2 className="text-2xl font-bold mb-4 text-green-800 flex items-center gap-2">
+    <span>🎯 Nivel Experiență</span>
+  </h2>
+  <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+    {[
+      { nivel: 'Începător', perioada: '0-1 ani' },
+      { nivel: 'Intermediar', perioada: '1-3 ani' },
+      { nivel: 'Avansat', perioada: '3+ ani' }
+    ].map((exp) => (
+      <button
+        key={exp.nivel}
+        type="button"
+        onClick={() => setFormData({...formData, experienta: exp.nivel})}
+        className={`p-4 rounded-xl shadow-md text-center font-semibold
+                   transform transition-all hover:-translate-y-1 hover:shadow-lg
+                   ${formData.experienta === exp.nivel
+                     ? 'bg-gradient-to-r from-green-500 to-green-600 text-white'
+                     : 'bg-white hover:bg-gray-50'}`}
+      >
+        <div className="text-lg">{exp.nivel}</div>
+        <div className={`text-sm mt-1 ${formData.experienta === exp.nivel ? 'text-green-100' : 'text-gray-500'}`}>
+          {exp.perioada}
         </div>
+      </button>
+    ))}
+  </div>
+</div>
         
         {/* Buton Submit */}
         <button
