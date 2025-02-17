@@ -2,11 +2,24 @@
 
 import { useState } from 'react'
 import Image from 'next/image'
+import { useRef } from "react";
 
 export default function FormularInscriere() {
 
   const [showGDPR, setShowGDPR] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const gdprRef = useRef<HTMLDivElement | null>(null);
+
+  //toggle buton gdpr
+  const toggleGDPR = () => {
+    setShowGDPR(!showGDPR);
+    if (!showGDPR) {
+      setTimeout(() => {
+        gdprRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
+      }, 300); // Așteaptă să înceapă tranziția înainte de scroll
+    }
+  };
+
   const [formData, setFormData] = useState({
     // Date copil
     numeCopil: '',
@@ -399,27 +412,28 @@ export default function FormularInscriere() {
           Înscrie-te Acum! 🚀
         </button>
 
-        {/* GDPR Info */}
+   {/* GDPR Info */}
 <div className="text-center mt-4 text-sm text-gray-500">
   <button
     type="button"
     className="underline hover:text-gray-700 transition"
-    onClick={() => setShowGDPR(!showGDPR)}
+    onClick={toggleGDPR}
   >
     Cum vor fi folosite datele mele?
   </button>
 
   <div
-    className={`overflow-hidden transition-all duration-500 ease-linear ${
-      showGDPR ? "max-h-40 opacity-100" : "max-h-0 opacity-0"
+    ref={gdprRef}
+    className={`transition-all duration-500 ease-in-out overflow-hidden ${
+      showGDPR ? "h-auto opacity-100 py-4" : "h-0 opacity-0 py-0"
     }`}
   >
-    <div className="mt-2 bg-gray-100 p-4 rounded-lg text-left text-gray-700 shadow">
+    <div className="bg-gray-100 p-4 rounded-lg text-left text-gray-700 shadow">
       <p>
         Datele furnizate în acest formular vor fi utilizate exclusiv pentru procesul de înscriere
         la TechMinds Academy. Acestea nu vor fi distribuite către terți și sunt protejate conform
         reglementărilor GDPR. Pentru orice întrebări, ne puteți contacta la{' '}
-        <a href="mailto:contact@techminds.academy" className="text-blue-600 underline">
+        <a href="mailto:office@techminds-academy.ro" className="text-blue-600 underline">
           office@techminds-academy.ro
         </a>.
       </p>
