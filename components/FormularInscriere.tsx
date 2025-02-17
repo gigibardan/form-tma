@@ -4,6 +4,8 @@ import { useState } from 'react'
 import Image from 'next/image'
 
 export default function FormularInscriere() {
+
+  const [showGDPR, setShowGDPR] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [formData, setFormData] = useState({
     // Date copil
@@ -21,18 +23,38 @@ export default function FormularInscriere() {
     localitate: '',
     judet: '',
     cnpParinte: '',
-    serieCI: '',
-    numarCI: '',
+   
     
     cursuri: [] as string[],
     experienta: ''
   })
 
   const cursuri = [
-    { id: 'robotica', nume: 'Robotică', emoji: '🤖', culoare: 'from-blue-500 to-blue-700' },
-    { id: 'programare', nume: 'Programare', emoji: '💻', culoare: 'from-purple-500 to-purple-700' },
-    { id: 'stem', nume: 'STEM', emoji: '🔬', culoare: 'from-green-500 to-green-700' }
-  ]
+    { 
+      id: 'robotica', 
+      nume: 'Robotică', 
+      subtitlu: 'Construiește & Programează',
+      emoji: '🤖', 
+      culoare: 'from-blue-500 to-blue-700',
+      tehnologii: 'Lego SPIKE Essentials & Prime, Microbit, Arduino'
+    },
+    { 
+      id: 'programare', 
+      nume: 'Programare', 
+      subtitlu: 'Game Development',
+      emoji: '🎮', 
+      culoare: 'from-purple-500 to-purple-700',
+      tehnologii: 'Scratch, GDevelop, Minecraft, Roblox, Python etc.'
+    },
+    { 
+      id: 'webdev', 
+      nume: 'Web Development', 
+      subtitlu: 'Frontend Development',
+      emoji: '💻', 
+      culoare: 'from-green-500 to-green-700',
+      tehnologii: 'HTML, CSS, JavaScript'
+    }
+  ];
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -61,8 +83,7 @@ export default function FormularInscriere() {
         localitate: '',
         judet: '',
         cnpParinte: '',
-        serieCI: '',
-        numarCI: '',
+        
         cursuri: [],
         experienta: ''
       });
@@ -131,7 +152,7 @@ export default function FormularInscriere() {
           {/* Logo */}
           <div className="w-24 h-24 md:w-32 md:h-32 flex-shrink-0">
             <Image
-              src="/images/logo.png"
+              src="/form-tma/images/logo.png"
               alt="TechMinds Academy"
               width={128}
               height={128}
@@ -160,7 +181,7 @@ export default function FormularInscriere() {
       </div>
 
       <form onSubmit={handleSubmit} className="space-y-8">
-        {/* Tot restul codului formularului rămâne neschimbat */}
+    
         {/* Secțiunea Date Copil */}
         <div className="bg-gradient-to-r from-blue-50 to-blue-100 p-6 rounded-xl shadow-lg
                         transform hover:shadow-xl transition-all">
@@ -257,30 +278,7 @@ export default function FormularInscriere() {
                 placeholder="CNP părinte"
               />
             </div>
-            <div className="grid grid-cols-2 gap-4">
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-1">Serie CI</label>
-                <input
-                  type="text"
-                  value={formData.serieCI}
-                  onChange={(e) => setFormData({...formData, serieCI: e.target.value})}
-                  className="w-full p-3 border border-purple-200 rounded-lg focus:ring-2 focus:ring-purple-500 
-                            focus:border-purple-500 transition-all"
-                  placeholder="Serie CI"
-                />
-              </div>
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-1">Număr CI</label>
-                <input
-                  type="text"
-                  value={formData.numarCI}
-                  onChange={(e) => setFormData({...formData, numarCI: e.target.value})}
-                  className="w-full p-3 border border-purple-200 rounded-lg focus:ring-2 focus:ring-purple-500 
-                            focus:border-purple-500 transition-all"
-                  placeholder="Număr CI"
-                />
-              </div>
-            </div>
+            
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-1">Adresa</label>
               <input
@@ -304,14 +302,14 @@ export default function FormularInscriere() {
               />
             </div>
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">Județ</label>
+              <label className="block text-sm font-medium text-gray-700 mb-1">Sector sau Județ</label>
               <input
                 type="text"
                 value={formData.judet}
                 onChange={(e) => setFormData({...formData, judet: e.target.value})}
                 className="w-full p-3 border border-purple-200 rounded-lg focus:ring-2 focus:ring-purple-500 
                           focus:border-purple-500 transition-all"
-                placeholder="Județul"
+                placeholder="Sectorul sau Județul"
               />
             </div>
             <div>
@@ -346,21 +344,23 @@ export default function FormularInscriere() {
             <span>📚 Cursuri Disponibile</span>
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-            {cursuri.map(curs => (
-              <button
-                key={curs.id}
-                type="button"
-                onClick={() => toggleCurs(curs.id)}
-                className={`p-4 rounded-xl shadow-md flex flex-col items-center justify-center gap-2
-                           transform transition-all hover:-translate-y-1 hover:shadow-lg text-lg font-semibold
-                           ${formData.cursuri.includes(curs.id) 
-                             ? `bg-gradient-to-r ${curs.culoare} text-white` 
-                             : 'bg-white hover:bg-gray-50'}`}
-              >
-                <span className="text-3xl">{curs.emoji}</span>
-                <span>{curs.nume}</span>
-              </button>
-            ))}
+          {cursuri.map(curs => (
+  <button
+    key={curs.id}
+    type="button"
+    onClick={() => toggleCurs(curs.id)}
+    className={`p-6 rounded-xl shadow-md flex flex-col items-center justify-center gap-2
+                transform transition-all hover:-translate-y-1 hover:shadow-lg
+                ${formData.cursuri.includes(curs.id) 
+                  ? `bg-gradient-to-r ${curs.culoare} text-white` 
+                  : 'bg-white hover:bg-gray-50'}`}
+  >
+    <span className="text-4xl mb-2">{curs.emoji}</span>
+    <span className="text-xl font-bold">{curs.nume}</span>
+    <span className="text-sm opacity-80">{curs.subtitlu}</span>
+    <span className="text-xs mt-2 opacity-70">{curs.tehnologii}</span>
+  </button>
+))}
           </div>
         </div>
 
@@ -398,6 +398,36 @@ export default function FormularInscriere() {
         >
           Înscrie-te Acum! 🚀
         </button>
+
+        {/* GDPR Info */}
+<div className="text-center mt-4 text-sm text-gray-500">
+  <button
+    type="button"
+    className="underline hover:text-gray-700 transition"
+    onClick={() => setShowGDPR(!showGDPR)}
+  >
+    Cum vor fi folosite datele mele?
+  </button>
+
+  <div
+    className={`overflow-hidden transition-all duration-500 ease-linear ${
+      showGDPR ? "max-h-40 opacity-100" : "max-h-0 opacity-0"
+    }`}
+  >
+    <div className="mt-2 bg-gray-100 p-4 rounded-lg text-left text-gray-700 shadow">
+      <p>
+        Datele furnizate în acest formular vor fi utilizate exclusiv pentru procesul de înscriere
+        la TechMinds Academy. Acestea nu vor fi distribuite către terți și sunt protejate conform
+        reglementărilor GDPR. Pentru orice întrebări, ne puteți contacta la{' '}
+        <a href="mailto:contact@techminds.academy" className="text-blue-600 underline">
+          office@techminds-academy.ro
+        </a>.
+      </p>
+    </div>
+  </div>
+</div>
+
+        
       </form>
     </div>
   )

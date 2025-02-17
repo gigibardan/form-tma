@@ -10,6 +10,8 @@ const poppins = Poppins({
   variable: '--font-poppins',
 })
 
+// comentariu test Vlad
+
 export const metadata: Metadata = {
   title: 'Formular Înscriere | TechMinds Academy',
   description: 'Formular de înscriere pentru cursurile de robotică, programare și STEM la TechMinds Academy',
