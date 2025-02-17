@@ -4,6 +4,8 @@ import { useState } from 'react'
 import Image from 'next/image'
 
 export default function FormularInscriere() {
+
+  const [showGDPR, setShowGDPR] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [formData, setFormData] = useState({
     // Date copil
@@ -131,7 +133,7 @@ export default function FormularInscriere() {
           {/* Logo */}
           <div className="w-24 h-24 md:w-32 md:h-32 flex-shrink-0">
             <Image
-              src="/images/logo.png"
+              src="images/logo.png"
               alt="TechMinds Academy"
               width={128}
               height={128}
@@ -398,6 +400,36 @@ export default function FormularInscriere() {
         >
           Înscrie-te Acum! 🚀
         </button>
+
+        {/* GDPR Info */}
+<div className="text-center mt-4 text-sm text-gray-500">
+  <button
+    type="button"
+    className="underline hover:text-gray-700 transition"
+    onClick={() => setShowGDPR(!showGDPR)}
+  >
+    Cum vor fi folosite datele mele?
+  </button>
+
+  <div
+    className={`overflow-hidden transition-all duration-500 ease-linear ${
+      showGDPR ? "max-h-40 opacity-100" : "max-h-0 opacity-0"
+    }`}
+  >
+    <div className="mt-2 bg-gray-100 p-4 rounded-lg text-left text-gray-700 shadow">
+      <p>
+        Datele furnizate în acest formular vor fi utilizate exclusiv pentru procesul de înscriere
+        la TechMinds Academy. Acestea nu vor fi distribuite către terți și sunt protejate conform
+        reglementărilor GDPR. Pentru orice întrebări, ne puteți contacta la{' '}
+        <a href="mailto:contact@techminds.academy" className="text-blue-600 underline">
+          office@techminds-academy.ro
+        </a>.
+      </p>
+    </div>
+  </div>
+</div>
+
+        
       </form>
     </div>
   )
