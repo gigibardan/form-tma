@@ -3,12 +3,17 @@
 import { useState } from 'react'
 import Image from 'next/image'
 import { useRef } from "react";
+import LocationSelector from '@/components/LocationSelector';
+
 
 export default function FormularInscriere() {
 
+  // Adaugă un nou state pentru tracking-ul submiterii
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
   const [showGDPR, setShowGDPR] = useState(false);
   const gdprRef = useRef<HTMLDivElement | null>(null);
- 
+
 
   //toggle buton gdpr
   const toggleGDPR = () => {
@@ -28,7 +33,7 @@ export default function FormularInscriere() {
     varstaCopil: string;
     scoala: string;
     observatiiCopil: string;
-    
+
     // Date părinte
     numeParinte: string;
     prenumeParinte: string;
@@ -38,17 +43,17 @@ export default function FormularInscriere() {
     localitate: string;
     judet: string;
     cnpParinte: string;
-    
+
     // Cursuri și experiență
     cursuri: string[];
     experienta: string;
-    
+
     // Notificări
     notificariEvenimente: boolean;
     notificariEmail: boolean;
     notificariSMS: boolean;
   }
-  
+
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [formData, setFormData] = useState<FormData>({
     // Date copil
@@ -58,7 +63,7 @@ export default function FormularInscriere() {
     varstaCopil: '',
     scoala: '',
     observatiiCopil: '',
-    
+
     // Date părinte
     numeParinte: '',
     prenumeParinte: '',
@@ -68,11 +73,11 @@ export default function FormularInscriere() {
     localitate: '',
     judet: '',
     cnpParinte: '',
-    
+
     // Cursuri și experiență
     cursuri: [],
     experienta: '',
-    
+
     // Notificări
     notificariEvenimente: true,
     notificariEmail: true,
@@ -80,34 +85,40 @@ export default function FormularInscriere() {
   });
 
   const cursuri = [
-    { 
-      id: 'robotica', 
-      nume: 'Robotică', 
+    {
+      id: 'robotica',
+      nume: 'Robotică',
       subtitlu: 'Construiește & Programează',
-      emoji: '🤖', 
+      emoji: '🤖',
       culoare: 'from-blue-500 to-blue-700',
       tehnologii: 'Lego SPIKE Essentials & Prime, Microbit, Arduino'
     },
-    { 
-      id: 'programare', 
-      nume: 'Programare', 
+    {
+      id: 'programare',
+      nume: 'Programare',
       subtitlu: 'Game Development',
-      emoji: '🎮', 
+      emoji: '🎮',
       culoare: 'from-purple-500 to-purple-700',
       tehnologii: 'Scratch, GDevelop, Minecraft, Roblox, Python etc.'
     },
-    { 
-      id: 'webdev', 
-      nume: 'Web Development', 
+    {
+      id: 'webdev',
+      nume: 'Web Development',
       subtitlu: 'Frontend Development',
-      emoji: '💻', 
+      emoji: '💻',
       culoare: 'from-green-500 to-green-700',
       tehnologii: 'HTML, CSS, JavaScript'
     }
   ];
 
+
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    if (isSubmitting) return; // Previne submiteri multiple
+
+    setIsSubmitting(true); // Începe procesul
+
     try {
       const response = await fetch('/api/submit', {
         method: 'POST',
@@ -116,9 +127,9 @@ export default function FormularInscriere() {
         },
         body: JSON.stringify(formData),
       });
-  
+
       if (!response.ok) throw new Error('Failed to submit');
-  
+
       setIsSubmitted(true);
       setFormData({
         numeCopil: '',
@@ -127,7 +138,7 @@ export default function FormularInscriere() {
         varstaCopil: '',
         scoala: '',
         observatiiCopil: '',
-        
+
         numeParinte: '',
         prenumeParinte: '',
         telefon: '',
@@ -136,11 +147,10 @@ export default function FormularInscriere() {
         localitate: '',
         judet: '',
         cnpParinte: '',
-     
-        
+
         cursuri: [],
         experienta: '',
-        
+
         notificariEvenimente: true,
         notificariEmail: true,
         notificariSMS: true
@@ -148,13 +158,15 @@ export default function FormularInscriere() {
     } catch (error) {
       console.error('Error submitting form:', error);
       alert('A apărut o eroare. Vă rugăm încercați din nou.');
+    } finally {
+      setIsSubmitting(false); // Reset state indiferent de rezultat
     }
   };
 
   const toggleCurs = (cursId: string) => {
     setFormData(prev => ({
       ...prev,
-      cursuri: prev.cursuri.includes(cursId) 
+      cursuri: prev.cursuri.includes(cursId)
         ? prev.cursuri.filter(id => id !== cursId)
         : [...prev.cursuri, cursId]
     }));
@@ -217,19 +229,19 @@ export default function FormularInscriere() {
               className="object-contain"
             />
           </div>
-          
+
           {/* Text content */}
           <div className="flex-1 text-center md:text-right">
             {/* Formular text cu font diferit și dimensiune mai mică */}
             <h1 className="text-sm md:text-lg font-normal mb-2 opacity-90 font-mono">
               Formular înscriere TechMinds Academy
             </h1>
-            
+
             {/* Titlu principal centrat */}
             <h2 className="text-2xl md:text-3xl font-bold mb-2">
               Vino în lumea STEM! 🚀
             </h2>
-            
+
             {/* Subtitlu */}
             <p className="text-base md:text-xl opacity-90">
               Descoperă universul fascinant al roboticii și programării
@@ -239,7 +251,7 @@ export default function FormularInscriere() {
       </div>
 
       <form onSubmit={handleSubmit} className="space-y-8">
-    
+
         {/* Secțiunea Date Copil */}
         <div className="bg-gradient-to-r from-blue-50 to-blue-100 p-6 rounded-xl shadow-lg
                         transform hover:shadow-xl transition-all">
@@ -252,7 +264,7 @@ export default function FormularInscriere() {
               <input
                 type="text"
                 value={formData.numeCopil}
-                onChange={(e) => setFormData({...formData, numeCopil: e.target.value})}
+                onChange={(e) => setFormData({ ...formData, numeCopil: e.target.value })}
                 className="w-full p-3 border border-blue-200 rounded-lg focus:ring-2 focus:ring-blue-500 
                           focus:border-blue-500 transition-all"
                 placeholder="Numele copilului"
@@ -263,7 +275,7 @@ export default function FormularInscriere() {
               <input
                 type="text"
                 value={formData.prenumeCopil}
-                onChange={(e) => setFormData({...formData, prenumeCopil: e.target.value})}
+                onChange={(e) => setFormData({ ...formData, prenumeCopil: e.target.value })}
                 className="w-full p-3 border border-blue-200 rounded-lg focus:ring-2 focus:ring-blue-500 
                           focus:border-blue-500 transition-all"
                 placeholder="Prenumele copilului"
@@ -274,7 +286,7 @@ export default function FormularInscriere() {
               <input
                 type="date"
                 value={formData.dataNasterii}
-                onChange={(e) => setFormData({...formData, dataNasterii: e.target.value})}
+                onChange={(e) => setFormData({ ...formData, dataNasterii: e.target.value })}
                 className="w-full p-3 border border-blue-200 rounded-lg focus:ring-2 focus:ring-blue-500 
                           focus:border-blue-500 transition-all"
               />
@@ -283,7 +295,7 @@ export default function FormularInscriere() {
               <label className="block text-sm font-medium text-gray-700 mb-1">Vârsta</label>
               <select
                 value={formData.varstaCopil}
-                onChange={(e) => setFormData({...formData, varstaCopil: e.target.value})}
+                onChange={(e) => setFormData({ ...formData, varstaCopil: e.target.value })}
                 className="w-full p-3 border border-blue-200 rounded-lg focus:ring-2 focus:ring-blue-500 
                           focus:border-blue-500 transition-all"
               >
@@ -296,32 +308,32 @@ export default function FormularInscriere() {
           </div>
 
           <div>
-  <label className="block text-sm font-medium text-gray-700 mb-1">Școala</label>
-  <input
-    type="text"
-    value={formData.scoala}
-    onChange={(e) => setFormData({...formData, scoala: e.target.value})}
-    className="w-full p-3 border border-blue-200 rounded-lg focus:ring-2 focus:ring-blue-500 
+            <label className="block text-sm font-medium text-gray-700 mb-1">Școala</label>
+            <input
+              type="text"
+              value={formData.scoala}
+              onChange={(e) => setFormData({ ...formData, scoala: e.target.value })}
+              className="w-full p-3 border border-blue-200 rounded-lg focus:ring-2 focus:ring-blue-500 
               focus:border-blue-500 transition-all"
-    placeholder="Numele școlii"
-  />
-</div>
+              placeholder="Numele școlii"
+            />
+          </div>
 
-<div className="col-span-2">
-  <label className="block text-sm font-medium text-gray-700 mb-1">Observații</label>
-  <textarea
-    value={formData.observatiiCopil}
-    onChange={(e) => setFormData({...formData, observatiiCopil: e.target.value})}
-    className="w-full p-3 border border-blue-200 rounded-lg focus:ring-2 focus:ring-blue-500 
+          <div className="col-span-2">
+            <label className="block text-sm font-medium text-gray-700 mb-1">Observații</label>
+            <textarea
+              value={formData.observatiiCopil}
+              onChange={(e) => setFormData({ ...formData, observatiiCopil: e.target.value })}
+              className="w-full p-3 border border-blue-200 rounded-lg focus:ring-2 focus:ring-blue-500 
               focus:border-blue-500 transition-all"
-    placeholder="Observații despre copil (opțional)"
-    rows={3}
-  />
-</div>
+              placeholder="Observații despre copil (opțional)"
+              rows={3}
+            />
+          </div>
         </div>
 
-       {/* Secțiunea Date Părinte */}
-       <div className="bg-gradient-to-r from-purple-50 to-purple-100 p-6 rounded-xl shadow-lg
+        {/* Secțiunea Date Părinte */}
+        <div className="bg-gradient-to-r from-purple-50 to-purple-100 p-6 rounded-xl shadow-lg
                         transform hover:shadow-xl transition-all">
           <h2 className="text-2xl font-bold mb-4 text-purple-800 flex items-center gap-2">
             <span>👨‍👩‍👧‍👦 Date Părinte/Tutore Legal</span>
@@ -332,7 +344,7 @@ export default function FormularInscriere() {
               <input
                 type="text"
                 value={formData.numeParinte}
-                onChange={(e) => setFormData({...formData, numeParinte: e.target.value})}
+                onChange={(e) => setFormData({ ...formData, numeParinte: e.target.value })}
                 className="w-full p-3 border border-purple-200 rounded-lg focus:ring-2 focus:ring-purple-500 
                           focus:border-purple-500 transition-all"
                 placeholder="Numele părintelui"
@@ -343,7 +355,7 @@ export default function FormularInscriere() {
               <input
                 type="text"
                 value={formData.prenumeParinte}
-                onChange={(e) => setFormData({...formData, prenumeParinte: e.target.value})}
+                onChange={(e) => setFormData({ ...formData, prenumeParinte: e.target.value })}
                 className="w-full p-3 border border-purple-200 rounded-lg focus:ring-2 focus:ring-purple-500 
                           focus:border-purple-500 transition-all"
                 placeholder="Prenumele părintelui"
@@ -354,52 +366,42 @@ export default function FormularInscriere() {
               <input
                 type="text"
                 value={formData.cnpParinte}
-                onChange={(e) => setFormData({...formData, cnpParinte: e.target.value})}
+                onChange={(e) => setFormData({ ...formData, cnpParinte: e.target.value })}
                 className="w-full p-3 border border-purple-200 rounded-lg focus:ring-2 focus:ring-purple-500 
                           focus:border-purple-500 transition-all"
                 placeholder="CNP părinte"
               />
             </div>
-            
+
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-1">Adresa</label>
               <input
                 type="text"
                 value={formData.adresa}
-                onChange={(e) => setFormData({...formData, adresa: e.target.value})}
+                onChange={(e) => setFormData({ ...formData, adresa: e.target.value })}
                 className="w-full p-3 border border-purple-200 rounded-lg focus:ring-2 focus:ring-purple-500 
                           focus:border-purple-500 transition-all"
                 placeholder="Strada, număr, bloc, scara, apartament"
               />
             </div>
-            <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">Localitate</label>
-              <input
-                type="text"
-                value={formData.localitate}
-                onChange={(e) => setFormData({...formData, localitate: e.target.value})}
-                className="w-full p-3 border border-purple-200 rounded-lg focus:ring-2 focus:ring-purple-500 
-                          focus:border-purple-500 transition-all"
-                placeholder="Localitatea"
-              />
-            </div>
-            <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">Sector sau Județ</label>
-              <input
-                type="text"
-                value={formData.judet}
-                onChange={(e) => setFormData({...formData, judet: e.target.value})}
-                className="w-full p-3 border border-purple-200 rounded-lg focus:ring-2 focus:ring-purple-500 
-                          focus:border-purple-500 transition-all"
-                placeholder="Sectorul sau Județul"
-              />
-            </div>
+
+
+            <LocationSelector
+              onJudetChange={(judet) => {
+                console.log('Actualizare județ în formular:', judet);
+                setFormData(prev => ({ ...prev, judet }));
+              }}
+              onLocalitateChange={(localitate) => setFormData(prev => ({ ...prev, localitate }))}
+              selectedJudet={formData.judet}
+              selectedLocalitate={formData.localitate}
+            />
+
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-1">Telefon</label>
               <input
                 type="tel"
                 value={formData.telefon}
-                onChange={(e) => setFormData({...formData, telefon: e.target.value})}
+                onChange={(e) => setFormData({ ...formData, telefon: e.target.value })}
                 className="w-full p-3 border border-purple-200 rounded-lg focus:ring-2 focus:ring-purple-500 
                           focus:border-purple-500 transition-all"
                 placeholder="07xx xxx xxx"
@@ -410,7 +412,7 @@ export default function FormularInscriere() {
               <input
                 type="email"
                 value={formData.email}
-                onChange={(e) => setFormData({...formData, email: e.target.value})}
+                onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                 className="w-full p-3 border border-purple-200 rounded-lg focus:ring-2 focus:ring-purple-500 
                           focus:border-purple-500 transition-all"
                 placeholder="email@exemplu.com"
@@ -426,139 +428,140 @@ export default function FormularInscriere() {
             <span>📚 Cursuri Disponibile</span>
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-          {cursuri.map(curs => (
-  <button
-    key={curs.id}
-    type="button"
-    onClick={() => toggleCurs(curs.id)}
-    className={`p-6 rounded-xl shadow-md flex flex-col items-center justify-center gap-2
+            {cursuri.map(curs => (
+              <button
+                key={curs.id}
+                type="button"
+                onClick={() => toggleCurs(curs.id)}
+                className={`p-6 rounded-xl shadow-md flex flex-col items-center justify-center gap-2
                 transform transition-all hover:-translate-y-1 hover:shadow-lg
-                ${formData.cursuri.includes(curs.id) 
-                  ? `bg-gradient-to-r ${curs.culoare} text-white` 
-                  : 'bg-white hover:bg-gray-50'}`}
-  >
-    <span className="text-4xl mb-2">{curs.emoji}</span>
-    <span className="text-xl font-bold">{curs.nume}</span>
-    <span className="text-sm opacity-80">{curs.subtitlu}</span>
-    <span className="text-xs mt-2 opacity-70">{curs.tehnologii}</span>
-  </button>
-))}
+                ${formData.cursuri.includes(curs.id)
+                    ? `bg-gradient-to-r ${curs.culoare} text-white`
+                    : 'bg-white hover:bg-gray-50'}`}
+              >
+                <span className="text-4xl mb-2">{curs.emoji}</span>
+                <span className="text-xl font-bold">{curs.nume}</span>
+                <span className="text-sm opacity-80">{curs.subtitlu}</span>
+                <span className="text-xs mt-2 opacity-70">{curs.tehnologii}</span>
+              </button>
+            ))}
           </div>
         </div>
 
-      {/* Secțiunea Experiență */}
-<div className="bg-gradient-to-r from-green-50 to-green-100 p-6 rounded-xl shadow-lg
+        {/* Secțiunea Experiență */}
+        <div className="bg-gradient-to-r from-green-50 to-green-100 p-6 rounded-xl shadow-lg
                 transform hover:shadow-xl transition-all">
-  <h2 className="text-2xl font-bold mb-4 text-green-800 flex items-center gap-2">
-    <span>🎯 Nivel Experiență</span>
-  </h2>
-  <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-    {[
-      { nivel: 'Începător', perioada: '0-1 ani' },
-      { nivel: 'Intermediar', perioada: '1-3 ani' },
-      { nivel: 'Avansat', perioada: '3+ ani' }
-    ].map((exp) => (
-      <button
-        key={exp.nivel}
-        type="button"
-        onClick={() => setFormData({...formData, experienta: exp.nivel})}
-        className={`p-4 rounded-xl shadow-md text-center font-semibold
+          <h2 className="text-2xl font-bold mb-4 text-green-800 flex items-center gap-2">
+            <span>🎯 Nivel Experiență</span>
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+            {[
+              { nivel: 'Începător', perioada: '0-1 ani' },
+              { nivel: 'Intermediar', perioada: '1-3 ani' },
+              { nivel: 'Avansat', perioada: '3+ ani' }
+            ].map((exp) => (
+              <button
+                key={exp.nivel}
+                type="button"
+                onClick={() => setFormData({ ...formData, experienta: exp.nivel })}
+                className={`p-4 rounded-xl shadow-md text-center font-semibold
                    transform transition-all hover:-translate-y-1 hover:shadow-lg
                    ${formData.experienta === exp.nivel
-                     ? 'bg-gradient-to-r from-green-500 to-green-600 text-white'
-                     : 'bg-white hover:bg-gray-50'}`}
-      >
-        <div className="text-lg">{exp.nivel}</div>
-        <div className={`text-sm mt-1 ${formData.experienta === exp.nivel ? 'text-green-100' : 'text-gray-500'}`}>
-          {exp.perioada}
+                    ? 'bg-gradient-to-r from-green-500 to-green-600 text-white'
+                    : 'bg-white hover:bg-gray-50'}`}
+              >
+                <div className="text-lg">{exp.nivel}</div>
+                <div className={`text-sm mt-1 ${formData.experienta === exp.nivel ? 'text-green-100' : 'text-gray-500'}`}>
+                  {exp.perioada}
+                </div>
+              </button>
+            ))}
+          </div>
         </div>
-      </button>
-    ))}
-  </div>
-</div>
 
 
-{/* Secțiunea Notificări */}
-<div className="bg-gradient-to-r from-yellow-50 to-yellow-100 p-6 rounded-xl shadow-lg
+        {/* Secțiunea Notificări */}
+        <div className="bg-gradient-to-r from-yellow-50 to-yellow-100 p-6 rounded-xl shadow-lg
                 transform hover:shadow-xl transition-all mb-6">
-  <h2 className="text-2xl font-bold mb-4 text-yellow-800 flex items-center gap-2">
-    <span>🔔 Notificări și Acorduri</span>
-  </h2>
-  <div className="space-y-4">
-    <label className="flex items-center space-x-3 hover:bg-yellow-100 p-2 rounded-lg transition-all">
-      <input
-        type="checkbox"
-        checked={formData.notificariEvenimente}
-        onChange={(e) => setFormData({...formData, notificariEvenimente: e.target.checked})}
-        className="form-checkbox h-5 w-5 text-yellow-600 rounded border-yellow-300 focus:ring-yellow-500"
-      />
-      <span className="text-gray-700">Doresc să primesc notificări despre începerea cursurilor și orar</span>
-    </label>
-    
-    <label className="flex items-center space-x-3 hover:bg-yellow-100 p-2 rounded-lg transition-all">
-      <input
-        type="checkbox"
-        checked={formData.notificariEmail}
-        onChange={(e) => setFormData({...formData, notificariEmail: e.target.checked})}
-        className="form-checkbox h-5 w-5 text-yellow-600 rounded border-yellow-300 focus:ring-yellow-500"
-      />
-      <span className="text-gray-700">Doresc să primesc pe email feedback si rapoartele de progres ale copilului</span>
-    </label>
-    
-    <label className="flex items-center space-x-3 hover:bg-yellow-100 p-2 rounded-lg transition-all">
-      <input
-        type="checkbox"
-        checked={formData.notificariSMS}
-        onChange={(e) => setFormData({...formData, notificariSMS: e.target.checked})}
-        className="form-checkbox h-5 w-5 text-yellow-600 rounded border-yellow-300 focus:ring-yellow-500"
-      />
-      <span className="text-gray-700">Doresc să primesc notificări SMS pentru informații importante și urgente</span>
-    </label>
-  </div>
-</div>
+          <h2 className="text-2xl font-bold mb-4 text-yellow-800 flex items-center gap-2">
+            <span>🔔 Notificări și Acorduri</span>
+          </h2>
+          <div className="space-y-4">
+            <label className="flex items-center space-x-3 hover:bg-yellow-100 p-2 rounded-lg transition-all">
+              <input
+                type="checkbox"
+                checked={formData.notificariEvenimente}
+                onChange={(e) => setFormData({ ...formData, notificariEvenimente: e.target.checked })}
+                className="form-checkbox h-5 w-5 text-yellow-600 rounded border-yellow-300 focus:ring-yellow-500"
+              />
+              <span className="text-gray-700">Doresc să primesc notificări despre începerea cursurilor și orar</span>
+            </label>
 
-        
+            <label className="flex items-center space-x-3 hover:bg-yellow-100 p-2 rounded-lg transition-all">
+              <input
+                type="checkbox"
+                checked={formData.notificariEmail}
+                onChange={(e) => setFormData({ ...formData, notificariEmail: e.target.checked })}
+                className="form-checkbox h-5 w-5 text-yellow-600 rounded border-yellow-300 focus:ring-yellow-500"
+              />
+              <span className="text-gray-700">Doresc să primesc pe email feedback si rapoartele de progres ale copilului</span>
+            </label>
+
+            <label className="flex items-center space-x-3 hover:bg-yellow-100 p-2 rounded-lg transition-all">
+              <input
+                type="checkbox"
+                checked={formData.notificariSMS}
+                onChange={(e) => setFormData({ ...formData, notificariSMS: e.target.checked })}
+                className="form-checkbox h-5 w-5 text-yellow-600 rounded border-yellow-300 focus:ring-yellow-500"
+              />
+              <span className="text-gray-700">Doresc să primesc notificări SMS pentru informații importante și urgente</span>
+            </label>
+          </div>
+        </div>
+
+
         {/* Buton Submit */}
         <button
           type="submit"
-          className="w-full p-4 bg-gradient-to-r from-blue-600 via-purple-600 to-blue-600 
-                     text-white text-xl font-bold rounded-xl shadow-lg
-                     transform hover:scale-[1.02] transition-all
-                     animate-gradient bg-[length:200%_200%]"
+          disabled={isSubmitting}
+          className={`w-full p-4 bg-gradient-to-r from-blue-600 via-purple-600 to-blue-600 
+              text-white text-xl font-bold rounded-xl shadow-lg
+              transform transition-all
+              animate-gradient bg-[length:200%_200%]
+              ${isSubmitting ? 'opacity-75 cursor-not-allowed' : 'hover:scale-[1.02]'}`}
         >
-          Înscrie-te Acum! 🚀
+          {isSubmitting ? 'Se trimite formularul...' : 'Înscrie-te Acum! 🚀'}
         </button>
 
-   {/* GDPR Info */}
-<div className="text-center mt-4 text-sm text-gray-500">
-  <button
-    type="button"
-    className="underline hover:text-gray-700 transition"
-    onClick={toggleGDPR}
-  >
-    Cum vor fi folosite datele mele?
-  </button>
+        {/* GDPR Info */}
+        <div className="text-center mt-4 text-sm text-gray-500">
+          <button
+            type="button"
+            className="underline hover:text-gray-700 transition"
+            onClick={toggleGDPR}
+          >
+            Cum vor fi folosite datele mele?
+          </button>
 
-  <div
-    ref={gdprRef}
-    className={`transition-all duration-500 ease-in-out overflow-hidden ${
-      showGDPR ? "h-auto opacity-100 py-4" : "h-0 opacity-0 py-0"
-    }`}
-  >
-    <div className="bg-gray-100 p-4 rounded-lg text-left text-gray-700 shadow">
-      <p>
-        Datele furnizate în acest formular vor fi utilizate exclusiv pentru procesul de înscriere
-        la TechMinds Academy. Acestea nu vor fi distribuite către terți și sunt protejate conform
-        reglementărilor GDPR. Pentru orice întrebări, ne puteți contacta la{' '}
-        <a href="mailto:office@techminds-academy.ro" className="text-blue-600 underline">
-          office@techminds-academy.ro
-        </a>.
-      </p>
-    </div>
-  </div>
-</div>
+          <div
+            ref={gdprRef}
+            className={`transition-all duration-500 ease-in-out overflow-hidden ${showGDPR ? "h-auto opacity-100 py-4" : "h-0 opacity-0 py-0"
+              }`}
+          >
+            <div className="bg-gray-100 p-4 rounded-lg text-left text-gray-700 shadow">
+              <p>
+                Datele furnizate în acest formular vor fi utilizate exclusiv pentru procesul de înscriere
+                la TechMinds Academy. Acestea nu vor fi distribuite către terți și sunt protejate conform
+                reglementărilor GDPR. Pentru orice întrebări, ne puteți contacta la{' '}
+                <a href="mailto:office@techminds-academy.ro" className="text-blue-600 underline">
+                  office@techminds-academy.ro
+                </a>.
+              </p>
+            </div>
+          </div>
+        </div>
 
-        
+
       </form>
     </div>
   )
