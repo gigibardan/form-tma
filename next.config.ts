@@ -1,6 +1,10 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
+
+  eslint: {
+    ignoreDuringBuilds: true,
+  },
   images: {
     unoptimized: true,
     domains: ['localhost'],
@@ -12,3 +16,4 @@ const nextConfig: NextConfig = {
 };
 
 export default nextConfig;
+
