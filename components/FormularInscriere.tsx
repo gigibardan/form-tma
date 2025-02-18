@@ -210,7 +210,7 @@ export default function FormularInscriere() {
           {/* Logo */}
           <div className="w-24 h-24 md:w-32 md:h-32 flex-shrink-0">
             <Image
-              src="/form-tma/images/logo.png"
+              src="/images/logo.png"
               alt="TechMinds Academy"
               width={128}
               height={128}
