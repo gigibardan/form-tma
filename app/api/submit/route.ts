@@ -1,53 +1,51 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { appendToSheet } from '@/lib/googleSheets';
 
-export const dynamic = 'force-dynamic';
-
 export async function POST(req: NextRequest) {
   try {
     const data = await req.json();
     
     // Formatăm datele pentru Google Sheets
     const values = [[
-      data.numeParinte,               // Parent First Names
-      data.prenumeParinte,            // Parent Last Name
-      data.email,                     // Parent Email
-      '',                             // Additional Email
-      data.telefon,                   // Mobile Phone
-      '',                             // Home Phone
-      '',                             // Work Phone
-      data.adresa,                    // Address
-      '',                             // Address 2
-      data.localitate,                // City
-      data.judet,                     // State
-      '',                             // Zip Code
-      'Romania',                      // Country
-      'Active',                       // Parent Status
-      `CNP: ${data.cnpParinte}`,     // Notes - Salvăm CNP-ul aici
-      data.notificariEvenimente ? 'Yes' : 'No', // Event Reminders
-      '',                             // Event Notes
-      data.notificariEmail ? 'Yes' : 'No',      // Emails
-      data.notificariSMS ? 'Yes' : 'No',        // SMS Reminders
-      data.numeCopil,                 // Student First Name
-      data.prenumeCopil,              // Student Last Name
-      '',                             // Student Email
-      '',                             // Student Mobile Phone
-      '',                             // Student Home Phone
-      data.dataNasterii,             // Birth Date
-      new Date().toISOString(),       // Start Date
-      data.scoala,                    // School
-      '',                             // Grade
-      data.cursuri.join(', '),       // Subjects
-      data.observatiiCopil,          // Student Notes
-      'Active',                       // Student Status
-      'Standard',                     // Billing Method
-      '',                             // Student Hourly Cost
-      '',                             // Cost Premium Name
-      '',                             // Discount Rate
-      data.notificariEvenimente ? 'Yes' : 'No', // Student Event Reminders
-      '',                             // Student Event Notes
-      data.notificariEmail ? 'Yes' : 'No',      // Student Emails
-      data.notificariSMS ? 'Yes' : 'No',        // Student SMS Reminders
+      data.numeParinte,
+      data.prenumeParinte,
+      data.email,
+      '',
+      data.telefon,
+      '',
+      '',
+      data.adresa,
+      '',
+      data.localitate,
+      data.judet,
+      '',
+      'Romania',
+      'Active',
+      `CNP: ${data.cnpParinte}`,
+      data.notificariEvenimente ? 'Yes' : 'No',
+      '',
+      data.notificariEmail ? 'Yes' : 'No',
+      data.notificariSMS ? 'Yes' : 'No',
+      data.numeCopil,
+      data.prenumeCopil,
+      '',
+      '',
+      '',
+      data.dataNasterii,
+      new Date().toISOString(),
+      data.scoala,
+      '',
+      data.cursuri.join(', '),
+      data.observatiiCopil,
+      'Active',
+      'Standard',
+      '',
+      '',
+      '',
+      data.notificariEvenimente ? 'Yes' : 'No',
+      '',
+      data.notificariEmail ? 'Yes' : 'No',
+      data.notificariSMS ? 'Yes' : 'No',
     ]];
     
     await appendToSheet(values);
