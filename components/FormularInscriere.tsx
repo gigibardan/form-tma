@@ -255,7 +255,7 @@ export default function FormularInscriere() {
         {/* Secțiunea Date Părinte */}
         <div className="bg-gradient-to-r from-blue-50 to-blue-100 p-6 rounded-xl shadow-lg
                         transform hover:shadow-xl transition-all">
-          <h2 className="text-2xl font-bold mb-4 text-purple-800 flex items-center gap-2">
+          <h2 className="text-2xl font-bold mb-4 text-blue-800 flex items-center gap-2">
             <span>👨‍👩‍👧‍👦 Date Părinte/Tutore Legal</span>
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -344,7 +344,7 @@ export default function FormularInscriere() {
         {/* Secțiunea Date Copil */}
         <div className="bg-gradient-to-r from-purple-50 to-purple-100 p-6 rounded-xl shadow-lg
                         transform hover:shadow-xl transition-all">
-          <h2 className="text-2xl font-bold mb-4 text-blue-800 flex items-center gap-2">
+          <h2 className="text-2xl font-bold mb-4 text-purple-800 flex items-center gap-2">
             <span>👶 Date Copil</span>
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -394,9 +394,7 @@ export default function FormularInscriere() {
                 ))}
               </select>
             </div>
-          </div>
-
-          <div>
+            <div className="col-span-2">
             <label className="block text-sm font-medium text-gray-700 mb-1">Școala</label>
             <input
               type="text"
@@ -418,6 +416,7 @@ export default function FormularInscriere() {
               placeholder="Observații despre copil (opțional)"
               rows={3}
             />
+          </div>
           </div>
         </div>
 
