@@ -1,4 +1,4 @@
-// File: C:\Users\gheor\OneDrive\Desktop\scripturi\formular\my-form\app\layout.tsx
+// File: D:\TechmindsDev\form-tma\app\layout.tsx
 import * as entry from '../../../app/layout.js'
 import type { ResolvingMetadata, ResolvingViewport } from 'next/dist/lib/metadata/types/metadata-interface.js'
 

@@ -252,88 +252,8 @@ export default function FormularInscriere() {
 
       <form onSubmit={handleSubmit} className="space-y-8">
 
-        {/* Secțiunea Date Copil */}
-        <div className="bg-gradient-to-r from-blue-50 to-blue-100 p-6 rounded-xl shadow-lg
-                        transform hover:shadow-xl transition-all">
-          <h2 className="text-2xl font-bold mb-4 text-blue-800 flex items-center gap-2">
-            <span>👶 Date Copil</span>
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">Nume Copil</label>
-              <input
-                type="text"
-                value={formData.numeCopil}
-                onChange={(e) => setFormData({ ...formData, numeCopil: e.target.value })}
-                className="w-full p-3 border border-blue-200 rounded-lg focus:ring-2 focus:ring-blue-500 
-                          focus:border-blue-500 transition-all"
-                placeholder="Numele copilului"
-              />
-            </div>
-            <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">Prenume Copil</label>
-              <input
-                type="text"
-                value={formData.prenumeCopil}
-                onChange={(e) => setFormData({ ...formData, prenumeCopil: e.target.value })}
-                className="w-full p-3 border border-blue-200 rounded-lg focus:ring-2 focus:ring-blue-500 
-                          focus:border-blue-500 transition-all"
-                placeholder="Prenumele copilului"
-              />
-            </div>
-            <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">Data Nașterii</label>
-              <input
-                type="date"
-                value={formData.dataNasterii}
-                onChange={(e) => setFormData({ ...formData, dataNasterii: e.target.value })}
-                className="w-full p-3 border border-blue-200 rounded-lg focus:ring-2 focus:ring-blue-500 
-                          focus:border-blue-500 transition-all"
-              />
-            </div>
-            <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">Vârsta</label>
-              <select
-                value={formData.varstaCopil}
-                onChange={(e) => setFormData({ ...formData, varstaCopil: e.target.value })}
-                className="w-full p-3 border border-blue-200 rounded-lg focus:ring-2 focus:ring-blue-500 
-                          focus:border-blue-500 transition-all"
-              >
-                <option value="">Selectează vârsta</option>
-                {[...Array(7)].map((_, i) => (
-                  <option key={i + 8} value={i + 8}>{i + 8} ani</option>
-                ))}
-              </select>
-            </div>
-          </div>
-
-          <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1">Școala</label>
-            <input
-              type="text"
-              value={formData.scoala}
-              onChange={(e) => setFormData({ ...formData, scoala: e.target.value })}
-              className="w-full p-3 border border-blue-200 rounded-lg focus:ring-2 focus:ring-blue-500 
-              focus:border-blue-500 transition-all"
-              placeholder="Numele școlii"
-            />
-          </div>
-
-          <div className="col-span-2">
-            <label className="block text-sm font-medium text-gray-700 mb-1">Observații</label>
-            <textarea
-              value={formData.observatiiCopil}
-              onChange={(e) => setFormData({ ...formData, observatiiCopil: e.target.value })}
-              className="w-full p-3 border border-blue-200 rounded-lg focus:ring-2 focus:ring-blue-500 
-              focus:border-blue-500 transition-all"
-              placeholder="Observații despre copil (opțional)"
-              rows={3}
-            />
-          </div>
-        </div>
-
         {/* Secțiunea Date Părinte */}
-        <div className="bg-gradient-to-r from-purple-50 to-purple-100 p-6 rounded-xl shadow-lg
+        <div className="bg-gradient-to-r from-blue-50 to-blue-100 p-6 rounded-xl shadow-lg
                         transform hover:shadow-xl transition-all">
           <h2 className="text-2xl font-bold mb-4 text-purple-800 flex items-center gap-2">
             <span>👨‍👩‍👧‍👦 Date Părinte/Tutore Legal</span>
@@ -418,6 +338,86 @@ export default function FormularInscriere() {
                 placeholder="email@exemplu.com"
               />
             </div>
+          </div>
+        </div>
+
+        {/* Secțiunea Date Copil */}
+        <div className="bg-gradient-to-r from-purple-50 to-purple-100 p-6 rounded-xl shadow-lg
+                        transform hover:shadow-xl transition-all">
+          <h2 className="text-2xl font-bold mb-4 text-blue-800 flex items-center gap-2">
+            <span>👶 Date Copil</span>
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div>
+              <label className="block text-sm font-medium text-gray-700 mb-1">Nume Copil</label>
+              <input
+                type="text"
+                value={formData.numeCopil}
+                onChange={(e) => setFormData({ ...formData, numeCopil: e.target.value })}
+                className="w-full p-3 border border-blue-200 rounded-lg focus:ring-2 focus:ring-blue-500 
+                          focus:border-blue-500 transition-all"
+                placeholder="Numele copilului"
+              />
+            </div>
+            <div>
+              <label className="block text-sm font-medium text-gray-700 mb-1">Prenume Copil</label>
+              <input
+                type="text"
+                value={formData.prenumeCopil}
+                onChange={(e) => setFormData({ ...formData, prenumeCopil: e.target.value })}
+                className="w-full p-3 border border-blue-200 rounded-lg focus:ring-2 focus:ring-blue-500 
+                          focus:border-blue-500 transition-all"
+                placeholder="Prenumele copilului"
+              />
+            </div>
+            <div>
+              <label className="block text-sm font-medium text-gray-700 mb-1">Data Nașterii</label>
+              <input
+                type="date"
+                value={formData.dataNasterii}
+                onChange={(e) => setFormData({ ...formData, dataNasterii: e.target.value })}
+                className="w-full p-3 border border-blue-200 rounded-lg focus:ring-2 focus:ring-blue-500 
+                          focus:border-blue-500 transition-all"
+              />
+            </div>
+            <div>
+              <label className="block text-sm font-medium text-gray-700 mb-1">Vârsta</label>
+              <select
+                value={formData.varstaCopil}
+                onChange={(e) => setFormData({ ...formData, varstaCopil: e.target.value })}
+                className="w-full p-3 border border-blue-200 rounded-lg focus:ring-2 focus:ring-blue-500 
+                          focus:border-blue-500 transition-all"
+              >
+                <option value="">Selectează vârsta</option>
+                {[...Array(7)].map((_, i) => (
+                  <option key={i + 8} value={i + 8}>{i + 8} ani</option>
+                ))}
+              </select>
+            </div>
+          </div>
+
+          <div>
+            <label className="block text-sm font-medium text-gray-700 mb-1">Școala</label>
+            <input
+              type="text"
+              value={formData.scoala}
+              onChange={(e) => setFormData({ ...formData, scoala: e.target.value })}
+              className="w-full p-3 border border-blue-200 rounded-lg focus:ring-2 focus:ring-blue-500 
+              focus:border-blue-500 transition-all"
+              placeholder="Numele școlii"
+            />
+          </div>
+
+          <div className="col-span-2">
+            <label className="block text-sm font-medium text-gray-700 mb-1">Observații</label>
+            <textarea
+              value={formData.observatiiCopil}
+              onChange={(e) => setFormData({ ...formData, observatiiCopil: e.target.value })}
+              className="w-full p-3 border border-blue-200 rounded-lg focus:ring-2 focus:ring-blue-500 
+              focus:border-blue-500 transition-all"
+              placeholder="Observații despre copil (opțional)"
+              rows={3}
+            />
           </div>
         </div>
 
