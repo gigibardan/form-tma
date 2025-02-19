@@ -24,7 +24,15 @@ export default function RootLayout({
 }) {
   return (
     <html lang="ro">
-      <body className={`${poppins.variable} font-sans min-h-screen bg-gray-50`}>
+      <body
+        style={{
+          backgroundImage: "url('/images/background.png')",
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          backgroundRepeat: "no-repeat",
+        }}
+        className={`${poppins.variable} font-sans min-h-screen bg-gray-50`}
+      >
         <main className="container mx-auto px-4 py-8">
           {children}
         </main>

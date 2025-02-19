@@ -614,6 +614,9 @@ video {
     max-width: 1536px;
   }
 }
+.fixed {
+  position: fixed;
+}
 .absolute {
   position: absolute;
 }
@@ -1305,3 +1308,4 @@ video {
     line-height: 1.75rem;
   }
 }
+
