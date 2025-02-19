@@ -120,7 +120,7 @@ export const LocationSelector: React.FC<LocationSelectorProps> = ({
   </div>
 )}
         {isJudetOpen && filteredJudete.length > 0 && (
-  <div className="absolute z-10 w-full mt-1 bg-white border border-purple-200 
+  <div className="absolute z-[100] w-full mt-1 bg-white border border-purple-200 
     rounded-lg shadow-lg max-h-60 overflow-y-auto divide-y divide-purple-100">
    {filteredJudete.map((judet, index) => (
   <div

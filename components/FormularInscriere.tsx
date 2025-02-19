@@ -254,7 +254,7 @@ export default function FormularInscriere() {
 
         {/* Secțiunea Date Părinte */}
         <div className="bg-gradient-to-r from-blue-50 to-blue-100 p-6 rounded-xl shadow-lg
-                        transform hover:shadow-xl transition-all">
+                        transform hover:shadow-xl transition-all relative z-[1]">
           <h2 className="text-2xl font-bold mb-4 text-blue-800 flex items-center gap-2">
             <span>👨‍👩‍👧‍👦 Date Părinte/Tutore Legal</span>
           </h2>
@@ -343,7 +343,7 @@ export default function FormularInscriere() {
 
         {/* Secțiunea Date Copil */}
         <div className="bg-gradient-to-r from-purple-50 to-purple-100 p-6 rounded-xl shadow-lg
-                        transform hover:shadow-xl transition-all">
+                        transform hover:shadow-xl transition-all relative z-0">
           <h2 className="text-2xl font-bold mb-4 text-purple-800 flex items-center gap-2">
             <span>👶 Date Copil</span>
           </h2>
@@ -422,7 +422,7 @@ export default function FormularInscriere() {
 
         {/* Secțiunea Cursuri */}
         <div className="bg-gradient-to-r from-yellow-50 to-yellow-100 p-6 rounded-xl shadow-lg
-                        transform hover:shadow-xl transition-all">
+                        transform hover:shadow-xl transition-all relative z-0">
           <h2 className="text-2xl font-bold mb-4 text-yellow-800 flex items-center gap-2">
             <span>📚 Cursuri Disponibile</span>
           </h2>
@@ -449,7 +449,7 @@ export default function FormularInscriere() {
 
         {/* Secțiunea Experiență */}
         <div className="bg-gradient-to-r from-green-50 to-green-100 p-6 rounded-xl shadow-lg
-                transform hover:shadow-xl transition-all">
+                transform hover:shadow-xl transition-all relative z-0">
           <h2 className="text-2xl font-bold mb-4 text-green-800 flex items-center gap-2">
             <span>🎯 Nivel Experiență</span>
           </h2>
@@ -481,7 +481,7 @@ export default function FormularInscriere() {
 
         {/* Secțiunea Notificări */}
         <div className="bg-gradient-to-r from-yellow-50 to-yellow-100 p-6 rounded-xl shadow-lg
-                transform hover:shadow-xl transition-all mb-6">
+                transform hover:shadow-xl transition-all mb-6 relative z-0">
           <h2 className="text-2xl font-bold mb-4 text-yellow-800 flex items-center gap-2">
             <span>🔔 Notificări și Acorduri</span>
           </h2>
